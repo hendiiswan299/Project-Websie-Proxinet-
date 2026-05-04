@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PROXINET Jaringan Nusantara branch Sukabumi - Penyedia Internet Cepat, Stabil, dan Terjangkau untuk Rumah & Bisnis di Sukabumi" />
+  <title>PROXINET Jaringan Nusantara | Sukabumi</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <style>
+    /* ======= SERVICES SECTION ======= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    /* ======= WHY US ======= */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .why-list {
+      list-style: none;
+    }
+
+    .why-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .why-list li:last-child { border-bottom: none; }
+
+    .why-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, rgba(26,111,181,0.2), rgba(0,200,255,0.1));
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .why-content h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .why-content p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    .network-diagram {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .network-diagram::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(26,111,181,0.08) 0%, transparent 70%);
+    }
+
+    .network-center {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2rem;
+      color: white;
+      box-shadow: 0 0 30px rgba(26,111,181,0.5), 0 0 60px rgba(26,111,181,0.2);
+      animation: networkPulse 3s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes networkPulse {
+      0%, 100% { box-shadow: 0 0 30px rgba(26,111,181,0.5), 0 0 60px rgba(26,111,181,0.2); }
+      50% { box-shadow: 0 0 50px rgba(0,200,255,0.6), 0 0 80px rgba(0,200,255,0.3); }
+    }
+
+    .network-rings {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .ring {
+      position: absolute;
+      border: 1px solid rgba(26,111,181,0.2);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: ringExpand 4s ease-in-out infinite;
+    }
+
+    .ring:nth-child(1) { width: 120px; height: 120px; animation-delay: 0s; }
+    .ring:nth-child(2) { width: 200px; height: 200px; animation-delay: 0.8s; }
+    .ring:nth-child(3) { width: 280px; height: 280px; animation-delay: 1.6s; }
+
+    @keyframes ringExpand {
+      0% { opacity: 0.8; }
+      50% { opacity: 0.3; }
+      100% { opacity: 0.8; }
+    }
+
+    .network-nodes {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .network-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .node-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-light);
+      font-size: 1rem;
+    }
+
+    .node-label {
+      font-size: 0.7rem;
+      color: var(--gray);
+      font-family: var(--font-mono);
+    }
+
+    /* ======= TESTIMONIALS ======= */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(58,144,216,0.4);
+      transform: translateY(-3px);
+    }
+
+    .testimonial-stars {
+      color: #fbbf24;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .author-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--white);
+      font-size: 0.95rem;
+    }
+
+    .author-area {
+      font-size: 0.78rem;
+      color: var(--gray);
+    }
+
+    /* ======= CTA SECTION ======= */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--dark-2) 0%, var(--dark-3) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 70%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(26,111,181,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(26,111,181,0.5), transparent);
+    }
+
+    .cta-box {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ======= ABOUT PAGE ======= */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .team-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .team-card:hover {
+      border-color: rgba(58,144,216,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .team-avatar {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: white;
+      margin: 0 auto 16px;
+      box-shadow: 0 0 20px rgba(26,111,181,0.3);
+    }
+
+    .team-name {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .team-role {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+    }
+
+    .visi-misi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .vm-card {
+      padding: 36px;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vm-card.visi {
+      background: linear-gradient(135deg, rgba(26,111,181,0.15), rgba(0,200,255,0.05));
+      border: 1px solid rgba(26,111,181,0.3);
+    }
+
+    .vm-card.misi {
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .vm-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .vm-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: 0.03em;
+    }
+
+    .vm-text {
+      color: var(--gray);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .misi-list {
+      list-style: none;
+    }
+
+    .misi-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    .misi-list li i {
+      color: var(--accent);
+      font-size: 0.8rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ======= PRICING PAGE ======= */
+    .pricing-hero {
+      background: var(--dark-2);
+      padding: 60px 0 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(26,111,181,0.1) 0%, transparent 70%);
+    }
+
+    .addon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .addon-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .addon-card:hover {
+      border-color: rgba(58,144,216,0.4);
+      transform: translateY(-3px);
+    }
+
+    .addon-icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .addon-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--white);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .addon-price {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ======= CONTACT PAGE ======= */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .hour-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .hour-day {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gray-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hour-time {
+      font-size: 0.88rem;
+      color: var(--accent);
+      font-family: var(--font-mono);
+    }
+
+    /* ======= LOCATION PAGE ======= */
+    .location-content {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .why-grid, .visi-misi-grid, .contact-grid, .location-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hours-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="mainNav">
+  <div class="nav-container">
+    <a href="#" class="nav-logo" data-page="home" onclick="showPage('home'); return false;">
+      <img src="images/logo.png" alt="PROXINET Logo" />
+      <div class="nav-logo-text">branch Sukabumi</div>
+    </a>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#" data-page="home"><i class="fas fa-home"></i> Beranda</a></li>
+      <li><a href="#" data-page="about"><i class="fas fa-building"></i> Tentang Kami</a></li>
+      <li><a href="#" data-page="pricing"><i class="fas fa-tags"></i> Paket Harga</a></li>
+      <li><a href="#" data-page="contact"><i class="fas fa-envelope"></i> Kontak</a></li>
+      <li><a href="#" data-page="location"><i class="fas fa-map-marker-alt"></i> Lokasi</a></li>
+      <li>
+        <a href="https://wa.me/6289637712970?text=Halo%20Admin%20PROXINET%2C%20saya%20ingin%20bertanya%20tentang%20layanan%20internet%20Anda." target="_blank" class="nav-cta">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+
+      <!-- User / Login Button -->
+      <div class="nav-user-area" id="navUserArea">
+        <button class="nav-login-btn" id="navLoginBtn" onclick="showPage('login'); return false;">
+          <i class="fas fa-user"></i>
+          <span>Masuk</span>
+        </button>
+        <!-- After login, this shows user info -->
+        <div class="nav-user-profile" id="navUserProfile" style="display:none">
+          <img id="navUserAvatar" src="" alt="Avatar" class="nav-avatar" />
+          <span id="navUserName" class="nav-user-name"></span>
+          <div class="nav-user-dropdown" id="navUserDropdown">
+            <div class="dropdown-header">
+              <img id="dropAvatar" src="" alt="" class="drop-avatar" />
+              <div>
+                <div id="dropName" class="drop-name"></div>
+                <div id="dropEmail" class="drop-email"></div>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item"><i class="fas fa-user-circle"></i> Profil Saya</a>
+            <a href="#" class="dropdown-item"><i class="fas fa-file-invoice"></i> Tagihan</a>
+            <a href="#" class="dropdown-item"><i class="fas fa-cog"></i> Pengaturan</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Keluar</a>
+          </div>
+        </div>
+      </div>
+
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-container">
+    <div class="search-box">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="searchInput" placeholder="Cari paket, layanan, atau informasi..." autocomplete="off" />
+      <button class="search-close-btn" id="searchClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+    <div class="search-suggestions">
+      <span class="suggestion-label">Pencarian Populer:</span>
+      <button class="suggestion-tag" onclick="doSearch('paket internet')">Paket Internet</button>
+      <button class="suggestion-tag" onclick="doSearch('harga')">Harga</button>
+      <button class="suggestion-tag" onclick="doSearch('fiber optik')">Fiber Optik</button>
+      <button class="suggestion-tag" onclick="doSearch('kontak')">Kontak</button>
+      <button class="suggestion-tag" onclick="doSearch('lokasi kantor')">Lokasi Kantor</button>
+      <button class="suggestion-tag" onclick="doSearch('cara daftar')">Cara Daftar</button>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     PAGE: BERANDA (HOME)
+     ========================================================= -->
+<div class="page" id="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-container">
+      <div class="hero-badge">
+        <span>Internet Service Provider</span>
+      </div>
+      <h1 class="hero-title">
+        Koneksi <span class="brand">Tanpa Batas</span><br/>untuk Sukabumi
+      </h1>
+      <p class="hero-subtitle">PROXINET Jaringan Nusantara – branch Sukabumi</p>
+      <p class="hero-desc">
+        Nikmati internet fiber optik super cepat, stabil 24/7, dengan harga terjangkau. Melayani kebutuhan rumahan hingga bisnis di seluruh wilayah Sukabumi.
+      </p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary btn-lg" data-page="pricing" onclick="showPage('pricing'); return false;">
+          <i class="fas fa-tags"></i> Lihat Paket
+        </a>
+        <a href="#" class="btn btn-outline btn-lg" data-page="contact" onclick="showPage('contact'); return false;">
+          <i class="fas fa-headset"></i> Hubungi Kami
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="5000" data-suffix="+">0+</span>
+          <span class="stat-label">Pelanggan Aktif</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="99" data-suffix="%">0%</span>
+          <span class="stat-label">Uptime Jaringan</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="20" data-suffix="+">0+</span>
+          <span class="stat-label">Area Cakupan</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="24" data-suffix="/7">0/7</span>
+          <span class="stat-label">Support Teknis</span>
+        </div>
+      </div>
+    </div>
+    <!-- Decorative Network SVG -->
+    <div class="hero-visual">
+      <svg class="network-visual" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="150" stroke="#1a6fb5" stroke-width="0.5" stroke-dasharray="4 8"/>
+        <circle cx="200" cy="200" r="100" stroke="#3a90d8" stroke-width="0.5" stroke-dasharray="4 4"/>
+        <circle cx="200" cy="200" r="50" stroke="#00c8ff" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="200" cy="200" r="20" fill="#1a6fb5" opacity="0.5"/>
+        <circle cx="200" cy="50" r="12" fill="#3a90d8" opacity="0.6"/>
+        <circle cx="335" cy="125" r="10" fill="#1a6fb5" opacity="0.5"/>
+        <circle cx="335" cy="275" r="14" fill="#00c8ff" opacity="0.4"/>
+        <circle cx="200" cy="350" r="10" fill="#3a90d8" opacity="0.5"/>
+        <circle cx="65" cy="275" r="12" fill="#1a6fb5" opacity="0.6"/>
+        <circle cx="65" cy="125" r="8" fill="#00c8ff" opacity="0.4"/>
+        <line x1="200" y1="200" x2="200" y2="50" stroke="#1a6fb5" stroke-width="0.8" opacity="0.4"/>
+        <line x1="200" y1="200" x2="335" y2="125" stroke="#3a90d8" stroke-width="0.8" opacity="0.4"/>
+        <line x1="200" y1="200" x2="335" y2="275" stroke="#00c8ff" stroke-width="0.8" opacity="0.3"/>
+        <line x1="200" y1="200" x2="200" y2="350" stroke="#1a6fb5" stroke-width="0.8" opacity="0.4"/>
+        <line x1="200" y1="200" x2="65" y2="275" stroke="#3a90d8" stroke-width="0.8" opacity="0.3"/>
+        <line x1="200" y1="200" x2="65" y2="125" stroke="#00c8ff" stroke-width="0.8" opacity="0.4"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="why-grid">
+        <div>
+          <div class="section-tag" style="justify-content:flex-start">Keunggulan Kami</div>
+          <h2 class="section-title" style="text-align:left">Mengapa Pilih <span>PROXINET?</span></h2>
+          <ul class="why-list">
+            <li>
+              <div class="why-icon"><i class="fas fa-bolt"></i></div>
+              <div class="why-content">
+                <h4>Kecepatan Tertinggi</h4>
+                <p>Infrastruktur fiber optik modern dengan kecepatan upload dan download simetris hingga 1 Gbps.</p>
+              </div>
+            </li>
+            <li>
+              <div class="why-icon"><i class="fas fa-signal"></i></div>
+              <div class="why-content">
+                <h4>Jaringan Super Stabil</h4>
+                <p>Uptime 99.9% didukung redundansi jaringan multi-path dan monitoring real-time 24 jam.</p>
+              </div>
+            </li>
+            <li>
+              <div class="why-icon"><i class="fas fa-wallet"></i></div>
+              <div class="why-content">
+                <h4>Harga Paling Terjangkau</h4>
+                <p>Paket mulai dari Rp 150.000/bulan dengan kualitas premium. Tanpa biaya tersembunyi.</p>
+              </div>
+            </li>
+            <li>
+              <div class="why-icon"><i class="fas fa-tools"></i></div>
+              <div class="why-content">
+                <h4>Instalasi Gratis</h4>
+                <p>Instalasi perangkat dan kabel gratis untuk semua pelanggan baru. Teknisi datang ke lokasi Anda.</p>
+              </div>
+            </li>
+            <li>
+              <div class="why-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="why-content">
+                <h4>Jangkauan Luas Sukabumi</h4>
+                <p>Melayani lebih dari 20 kecamatan di Kota & Kabupaten Sukabumi dan terus berkembang.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="network-diagram reveal">
+          <div class="network-rings">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+          </div>
+          <div class="network-center"><i class="fas fa-globe"></i></div>
+          <div class="network-nodes">
+            <div class="network-node">
+              <div class="node-icon"><i class="fas fa-home"></i></div>
+              <span class="node-label">Rumahan</span>
+            </div>
+            <div class="network-node">
+              <div class="node-icon"><i class="fas fa-store"></i></div>
+              <span class="node-label">Warnet</span>
+            </div>
+            <div class="network-node">
+              <div class="node-icon"><i class="fas fa-building"></i></div>
+              <span class="node-label">Kantor</span>
+            </div>
+            <div class="network-node">
+              <div class="node-icon"><i class="fas fa-school"></i></div>
+              <span class="node-label">Sekolah</span>
+            </div>
+            <div class="network-node">
+              <div class="node-icon"><i class="fas fa-hotel"></i></div>
+              <span class="node-label">Hotel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Testimoni</div>
+        <h2 class="section-title">Kata <span>Pelanggan Kami</span></h2>
+        <p class="section-desc">Kepuasan pelanggan adalah prioritas utama kami</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Sudah 2 tahun langganan PROXINET, koneksinya stabil banget. Nonton Netflix 4K sambil meeting zoom tidak pernah buffering. Harganya juga sangat worth it!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">A</div>
+            <div>
+              <div class="author-name">Ahmad Fauzi</div>
+              <div class="author-area"><i class="fas fa-map-pin" style="color:var(--accent);font-size:0.7rem;margin-right:4px"></i> Sukabumi Kota</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Warnet saya makin lancer sejak pake PROXINET. Pelanggan puas, omset naik. CS-nya juga responsif, kalau ada masalah langsung ditangani hari itu."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">S</div>
+            <div>
+              <div class="author-name">Sari Dewi</div>
+              <div class="author-area"><i class="fas fa-map-pin" style="color:var(--accent);font-size:0.7rem;margin-right:4px"></i> Cikole, Sukabumi</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Proses pendaftaran mudah dan cepat. Teknisi datang tepat waktu, instalasi bersih dan rapi. Internet langsung aktif di hari yang sama. Mantap PROXINET!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">B</div>
+            <div>
+              <div class="author-name">Budi Santoso</div>
+              <div class="author-area"><i class="fas fa-map-pin" style="color:var(--accent);font-size:0.7rem;margin-right:4px"></i> Cisaat, Sukabumi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <div class="section-tag" style="justify-content:center;margin-bottom:16px;">Mulai Sekarang</div>
+        <h2 class="section-title">Siap Upgrade <span>Internet Anda?</span></h2>
+        <p class="section-desc" style="margin-bottom:32px;">Daftar sekarang dan nikmati internet super cepat dari PROXINET. Instalasi gratis, tanpa biaya setup!</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="#" class="btn btn-primary btn-lg" data-page="pricing" onclick="showPage('pricing'); return false;">
+            <i class="fas fa-tags"></i> Lihat Paket Harga
+          </a>
+          <a href="https://wa.me/6289637712970?text=Halo%20Admin%20PROXINET%2C%20saya%20ingin%20daftar%20internet%20baru.%20Boleh%20minta%20info%20paket%20dan%20cek%20ketersediaan%20di%20lokasi%20saya%3F%20Terima%20kasih%20%F0%9F%99%8F" target="_blank" class="btn btn-wa btn-lg">
+            <i class="fab fa-whatsapp"></i> Chat WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-2.png" alt="PROXINET" />
+          <p>PROXINET Jaringan Nusantara branch Sukabumi adalah penyedia layanan internet terpercaya yang melayani ribuan pelanggan di wilayah Sukabumi dan sekitarnya.</p>
+          <div class="footer-social">
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigasi</h4>
+          <ul class="footer-links">
+            <li><a href="#" data-page="home" onclick="showPage('home');return false;">Beranda</a></li>
+            <li><a href="#" data-page="about" onclick="showPage('about');return false;">Tentang Kami</a></li>
+            <li><a href="#" data-page="pricing" onclick="showPage('pricing');return false;">Paket Harga</a></li>
+            <li><a href="#" data-page="contact" onclick="showPage('contact');return false;">Kontak</a></li>
+            <li><a href="#" data-page="location" onclick="showPage('location');return false;">Lokasi</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Layanan</h4>
+          <ul class="footer-links">
+            <li><a href="#">Internet Rumahan</a></li>
+            <li><a href="#">Internet Bisnis</a></li>
+            <li><a href="#">Fiber Optik</a></li>
+            <li><a href="#">Dedicated Line</a></li>
+            <li><a href="#">VPN & Security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul class="footer-links" style="gap:10px">
+            <li style="display:flex;gap:8px;align-items:flex-start">
+              <i class="fas fa-map-marker-alt" style="color:var(--accent);margin-top:3px;flex-shrink:0"></i>
+              <span style="color:var(--gray);font-size:0.85rem">Jl. Contoh No. 123, Sukabumi, Jawa Barat</span>
+            </li>
+            <li style="display:flex;gap:8px;align-items:center">
+              <i class="fab fa-whatsapp" style="color:var(--accent)"></i>
+              <a href="https://wa.me/6289637712970" target="_blank" style="color:var(--gray);font-size:0.85rem;text-decoration:none">0812-3456-7890</a>
+            </li>
+            <li style="display:flex;gap:8px;align-items:center">
+              <i class="fas fa-envelope" style="color:var(--accent)"></i>
+              <a href="mailto:sukabumi@proxinet.id" style="color:var(--gray);font-size:0.85rem;text-decoration:none">sukabumi@proxinet.id</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 <span>PROXINET Jaringan Nusantara</span> branch Sukabumi. All rights reserved.</p>
+        <p style="font-size:0.78rem;color:var(--gray)">Designed with <span style="color:#ef4444">♥</span> for Sukabumi</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- =========================================================
+     PAGE: TENTANG KAMI (ABOUT)
+     ========================================================= -->
+<div class="page" id="about">
+  <section class="about-hero">
+    <div class="container">
+      <div class="page-hero-tag">Tentang Kami</div>
+      <h1 class="page-hero-title">PROXINET <span style="background:linear-gradient(135deg,var(--accent),var(--primary-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Jaringan Nusantara</span></h1>
+      <p class="page-hero-desc">Menjadi mitra terpercaya dalam menghubungkan masyarakat dan bisnis Sukabumi dengan dunia digital sejak 2015.</p>
+    </div>
+  </section>
+
+  <!-- VISI & MISI -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Visi & Misi</div>
+        <h2 class="section-title">Komitmen <span>Kami</span></h2>
+      </div>
+      <div class="visi-misi-grid">
+        <div class="vm-card visi reveal">
+          <div class="vm-icon"></div>
+          <h3 class="vm-title">Visi</h3>
+          <p class="vm-text">Membangun masyarakat Indonesia yang cerdas melalui koneksi internet untuk membangkitkan potensi yang ada baik secara perusahaan maupun secara perorangan</p>
+        </div>
+        <div class="vm-card misi reveal reveal-delay-1">
+          <div class="vm-icon"></div>
+          <h3 class="vm-title">Misi</h3>
+          <ul class="misi-list">
+          <li><i class="fas fa-check-circle"></i>Menjadi perusahaan terdepan di Indonesia dengan pelayanan yang terbaik dan inovasi yang tinggi"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFIL PERUSAHAAN -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Profil Perusahaan</div>
+        <h2 class="section-title">Sejarah <span>PROXINET</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2020</div>
+            <div class="timeline-title">Pendirian PROXINET</div>
+            <p class="timeline-text">PROXINET Jaringan Nusantara didirikan dengan visi menghadirkan internet berkualitas di Indonesia. branch pertama dibuka di Jakarta.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">20**</div>
+            <div class="timeline-title">Ekspansi ke Jawa Barat</div>
+            <p class="timeline-text">PROXINET mulai memperluas jaringan ke wilayah Jawa Barat, termasuk pembukaan branch Sukabumi untuk melayani masyarakat setempat.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">20**</div>
+            <div class="timeline-title">Upgrade Infrastruktur Fiber</div>
+            <p class="timeline-text">Seluruh jaringan diupgrade ke fiber optik GPON dengan kapasitas hingga 10 Gbps. Kecepatan pelanggan meningkat signifikan.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">20**</div>
+            <div class="timeline-title">5.000+ Pelanggan</div>
+            <p class="timeline-text">branch Sukabumi berhasil melayani lebih dari 5.000 pelanggan aktif dengan cakupan lebih dari 20 kecamatan di Sukabumi.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card reveal" style="margin-bottom:20px">
+            <div class="card-icon"><i class="fas fa-info-circle"></i></div>
+            <h3 class="card-title">Tentang Perusahaan</h3>
+            <p class="card-text" style="margin-bottom:12px">PT. Proxi Jaringan Nusantara (PROXINET) adalah sebuah perusahaan penyedia jasa internet yang berpusat di Kota Batam, menggunakan jaringan serat optic dan terhubung di berbagai daerah yang ada di Indonesia dan berdiri sejak tahun 2020..</p>
+            <p class="card-text">Berkomitmen untuk menyediakan protofolio layanan telekomunikasi, infrastruktur, TI internasional mutakhir, dan berkualitas tinggi kepada klien kami dengan menitikberatkan pada kepuasan pelanggan dan dukungan pasca jualan.</p>
+          </div>
+          <div class="grid-2" style="gap:12px">
+            <div class="info-box" style="flex-direction:column;text-align:center">
+              <div style="font-size:1.8rem;color:var(--accent);margin-bottom:8px">📡</div>
+              <div class="info-box-content">
+                <h4 style="font-size:1.4rem;color:white">FTTH</h4>
+                <p style="font-size:0.8rem">Fiber to the Home</p>
+              </div>
+            </div>
+            <div class="info-box" style="flex-direction:column;text-align:center">
+              <div style="font-size:1.8rem;color:var(--accent);margin-bottom:8px">🏢</div>
+              <div class="info-box-content">
+                <h4 style="font-size:1.4rem;color:white">FTTB</h4>
+                <p style="font-size:0.8rem">Fiber to the Building</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREA COVERAGE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Jangkauan</div>
+        <h2 class="section-title">Area <span>Cakupan Kami</span></h2>
+        <p class="section-desc">PROXINET telah hadir di berbagai wilayah Sukabumi dan terus berkembang</p>
+      </div>
+      <div style="text-align:center;margin-bottom:32px">
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px">
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Sukabumi Kota</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Cikole</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Cisaat</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Citamiang</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Warudoyong</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Baros</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Lembursitu</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Cibeureum</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Sukaraja</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Kebonpedes</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Cibadak</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Cicantayan</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Nagrak</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Parungkuda</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Palabuhanratu</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Bojonggenteng</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Caringin</span>
+          <span class="coverage-badge"><i class="fas fa-circle"></i> Cicurug</span>
+          <span class="coverage-badge" style="background:rgba(0,200,255,0.1);border-color:rgba(0,200,255,0.4);color:var(--accent)"><i class="fas fa-plus"></i> Dan lebih banyak lagi</span>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <i class="fas fa-info-circle"></i>
+        <div>Belum ada di daftar? <strong style="color:var(--accent)">Hubungi kami!</strong> Kami terus memperluas jangkauan jaringan ke area baru setiap bulannya. Cek ketersediaan di lokasi Anda sekarang.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (reused) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-2.png" alt="PROXINET" />
+          <p>PROXINET Jaringan Nusantara branch Sukabumi. Menghubungkan Sukabumi dengan dunia.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigasi</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="showPage('home');return false;">Beranda</a></li>
+            <li><a href="#" onclick="showPage('about');return false;">Tentang Kami</a></li>
+            <li><a href="#" onclick="showPage('pricing');return false;">Paket Harga</a></li>
+            <li><a href="#" onclick="showPage('contact');return false;">Kontak</a></li>
+            <li><a href="#" onclick="showPage('location');return false;">Lokasi</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/6289637712970" target="_blank"><i class="fab fa-whatsapp" style="color:var(--accent)"></i> 0812-3456-7890</a></li>
+            <li><a href="mailto:sukabumi@proxinet.id">sukabumi@proxinet.id</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Jam Operasional</h4>
+          <p style="font-size:0.85rem;color:var(--gray);line-height:1.7">Senin – Sabtu: 08.00 – 20.00<br/>Minggu: 09.00 – 17.00<br/>Support 24/7 via WhatsApp</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 <span>PROXINET Jaringan Nusantara</span> branch Sukabumi.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- =========================================================
+     PAGE: PAKET HARGA (PRICING)
+     ========================================================= -->
+<div class="page" id="pricing">
+  <section class="pricing-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="page-hero-tag" style="justify-content:center">Paket Harga</div>
+      <h1 class="page-hero-title" style="text-align:center">Pilih Paket <span style="background:linear-gradient(135deg,var(--accent),var(--primary-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Internet Anda</span></h1>
+      <p class="page-hero-desc" style="margin:0 auto;text-align:center">Semua paket sudah termasuk instalasi gratis, modem/router, dan garansi uptime 99.9%. Harga belum termasuk PPN.</p>
+    </div>
+  </section>
+
+  <!-- RESIDENTIAL PACKAGES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Paket Rumahan</div>
+        <h2 class="section-title">Internet untuk <span>Keluarga</span></h2>
+        <p class="section-desc">Cocok untuk streaming, gaming, dan work from home</p>
+      </div>
+      <div class="pricing-grid">
+
+        <!-- Starter -->
+        <div class="pricing-card reveal">
+          <div class="popular-badge">🔥 Terpopuler</div>
+          <div class="pkg-tier">STARTER</div>
+          <div class="pkg-name">Basic</div>
+          <div class="pkg-speed"><i class="fas fa-bolt" style="font-size:0.85rem"></i> 10 Mbps</div>
+          <div class="pkg-price">
+            <span class="pkg-price-amount">150K</span>
+            <span class="pkg-price-period">/bulan</span>
+            <div class="pkg-price-note">+ Biaya aktivasi: Rp 50.000</div>
+          </div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features">
+            <li><i class="fas fa-check-circle"></i> Kecepatan 10 Mbps simetris</li>
+            <li><i class="fas fa-check-circle"></i> Unlimited data</li>
+            <li><i class="fas fa-check-circle"></i> Router WiFi gratis</li>
+            <li><i class="fas fa-check-circle"></i> Instalasi gratis</li>
+            <li><i class="fas fa-check-circle"></i> Support via WhatsApp</li>
+            <li class="disabled"><i class="fas fa-times-circle"></i> IP Statis</li>
+            <li class="disabled"><i class="fas fa-times-circle"></i> Dedicated Line</li>
+          </ul>
+          <button class="btn btn-outline" style="width:100%" onclick="sendWhatsApp('Basic 10 Mbps - Rp 150.000/bulan')">
+            <i class="fab fa-whatsapp"></i> Daftar Sekarang
+          </button>
+        </div>
+
+        <!-- Standard -->
+        <div class="pricing-card reveal reveal-delay-1">
+          <div class="pkg-tier">STANDARD</div>
+          <div class="pkg-name">Silver</div>
+          <div class="pkg-speed"><i class="fas fa-bolt" style="font-size:0.85rem"></i> 20 Mbps</div>
+          <div class="pkg-price">
+            <span class="pkg-price-amount">250K</span>
+            <span class="pkg-price-period">/bulan</span>
+            <div class="pkg-price-note">+ Biaya aktivasi: Rp 50.000</div>
+          </div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features">
+            <li><i class="fas fa-check-circle"></i> Kecepatan 20 Mbps simetris</li>
+            <li><i class="fas fa-check-circle"></i> Unlimited data</li>
+            <li><i class="fas fa-check-circle"></i> Router WiFi dual-band</li>
+            <li><i class="fas fa-check-circle"></i> Instalasi gratis</li>
+            <li><i class="fas fa-check-circle"></i> Support 24/7</li>
+            <li class="disabled"><i class="fas fa-times-circle"></i> IP Statis</li>
+            <li class="disabled"><i class="fas fa-times-circle"></i> Dedicated Line</li>
+          </ul>
+          <button class="btn btn-outline" style="width:100%" onclick="sendWhatsApp('Silver 20 Mbps - Rp 250.000/bulan')">
+            <i class="fab fa-whatsapp"></i> Daftar Sekarang
+          </button>
+        </div>
+
+        <!-- Popular -->
+        <div class="pricing-card popular reveal reveal-delay-2">
+          <div class="popular-badge">🔥 Terpopuler</div>
+          <div class="pkg-tier">POPULER</div>
+          <div class="pkg-name">Gold</div>
+          <div class="pkg-speed"><i class="fas fa-bolt" style="font-size:0.85rem"></i> 50 Mbps</div>
+          <div class="pkg-price">
+            <span class="pkg-price-amount">399K</span>
+            <span class="pkg-price-period">/bulan</span>
+            <div class="pkg-price-note">Instalasi & aktivasi GRATIS</div>
+          </div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features">
+            <li><i class="fas fa-check-circle"></i> Kecepatan 50 Mbps simetris</li>
+            <li><i class="fas fa-check-circle"></i> Unlimited data</li>
+            <li><i class="fas fa-check-circle"></i> Router WiFi AC1200</li>
+            <li><i class="fas fa-check-circle"></i> Instalasi + aktivasi gratis</li>
+            <li><i class="fas fa-check-circle"></i> Priority support 24/7</li>
+            <li><i class="fas fa-check-circle"></i> 1 IP Statis</li>
+            <li class="disabled"><i class="fas fa-times-circle"></i> Dedicated Line</li>
+          </ul>
+          <button class="btn btn-primary" style="width:100%" onclick="sendWhatsApp('Gold 50 Mbps - Rp 399.000/bulan')">
+            <i class="fab fa-whatsapp"></i> Daftar Sekarang
+          </button>
+        </div>
+
+        <!-- Premium -->
+        <div class="pricing-card reveal reveal-delay-3">
+          <div class="pkg-tier">PREMIUM</div>
+          <div class="pkg-name">Platinum</div>
+          <div class="pkg-speed"><i class="fas fa-bolt" style="font-size:0.85rem"></i> 100 Mbps</div>
+          <div class="pkg-price">
+            <span class="pkg-price-amount">599K</span>
+            <span class="pkg-price-period">/bulan</span>
+            <div class="pkg-price-note">Instalasi & aktivasi GRATIS</div>
+          </div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features">
+            <li><i class="fas fa-check-circle"></i> Kecepatan 100 Mbps simetris</li>
+            <li><i class="fas fa-check-circle"></i> Unlimited data</li>
+            <li><i class="fas fa-check-circle"></i> Router WiFi Mesh ready</li>
+            <li><i class="fas fa-check-circle"></i> Instalasi + aktivasi gratis</li>
+            <li><i class="fas fa-check-circle"></i> VIP support 24/7</li>
+            <li><i class="fas fa-check-circle"></i> 1 IP Statis</li>
+            <li class="disabled"><i class="fas fa-times-circle"></i> Dedicated Line</li>
+          </ul>
+          <button class="btn btn-outline" style="width:100%" onclick="sendWhatsApp('Platinum 100 Mbps - Rp 599.000/bulan')">
+            <i class="fab fa-whatsapp"></i> Daftar Sekarang
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2 class="section-title">Bingung Pilih Paket?</h2>
+        <p class="section-desc" style="margin-bottom:32px">Tim kami siap membantu merekomendasikan paket yang paling sesuai dengan kebutuhan dan budget Anda. Konsultasi gratis!</p>
+        <a href="https://wa.me/6289637712970?text=Halo%20Admin%20PROXINET%20%F0%9F%91%8B%0A%0ASaya%20butuh%20bantuan%20memilih%20paket%20internet%20yang%20sesuai%20dengan%20kebutuhan%20saya.%0A%0ABoleh%20saya%20konsultasi%20gratis%3F%20Terima%20kasih%20%F0%9F%99%8F" target="_blank" class="btn btn-wa btn-lg">
+          <i class="fab fa-whatsapp"></i> Konsultasi Gratis via WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:32px">
+        <p>© 2026 <span>PROXINET Jaringan Nusantara</span> branch Sukabumi. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- =========================================================
+     PAGE: KONTAK
+     ========================================================= -->
+<div class="page" id="contact">
+  <section class="about-hero">
+    <div class="container">
+      <div class="page-hero-tag">Hubungi Kami</div>
+      <h1 class="page-hero-title">Kami Siap <span style="background:linear-gradient(135deg,var(--accent),var(--primary-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Membantu Anda</span></h1>
+      <p class="page-hero-desc">Ada pertanyaan tentang layanan kami? Tim kami siap membantu 24/7 melalui berbagai saluran komunikasi.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Info Kontak -->
+        <div>
+          <h3 style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:24px;letter-spacing:0.03em">
+            Informasi Kontak
+          </h3>
+
+          <div class="info-box">
+            <div class="info-box-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="info-box-content">
+              <h4>Alamat Kantor</h4>
+              <p>Jl. Sarasa No.1, Kp. Loasari,Sindangpalay, Kec. Cibeureum<br/>Kota Sukabumi Jawa Barat 43162, Indonesia</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <div class="info-box-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="info-box-content">
+              <h4>WhatsApp Admin</h4>
+              <a href="https://wa.me/6289637712970?text=Halo%20Admin%20PROXINET%20%F0%9F%91%8B%0A%0ASaya%20ingin%20bertanya%20tentang%20layanan%20PROXINET.%20Apakah%20bisa%20dibantu%3F%0A%0ATerima%20kasih%20%F0%9F%99%8F" target="_blank">0812-3456-7890 (Chat/WhatsApp)</a>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <div class="info-box-icon"><i class="fas fa-phone-alt"></i></div>
+            <div class="info-box-content">
+              <h4>Telepon</h4>
+              <a href="tel:+62266123456">(0266) 123456</a>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <div class="info-box-icon"><i class="fas fa-envelope"></i></div>
+            <div class="info-box-content">
+              <h4>Email</h4>
+              <a href="mailto:sukabumi@proxinet.id">sukabumi@proxinet.id</a>
+            </div>
+          </div>
+
+          <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--white);margin:28px 0 16px;letter-spacing:0.03em">
+            Jam Operasional
+          </h3>
+          <div class="hours-grid">
+            <div class="hour-item">
+              <div class="hour-day">Senin – Jumat</div>
+              <div class="hour-time">08.00 – 00.00</div>
+            </div>
+            <div class="hour-item">
+              <div class="hour-day">Sabtu</div>
+              <div class="hour-time">08.00 – 00.00</div>
+            </div>
+            <div class="hour-item">
+              <div class="hour-day">Minggu</div>
+              <div class="hour-time">09.00 – 00.00</div>
+            </div>
+            <div class="hour-item" style="background:rgba(37,211,102,0.08);border-color:rgba(37,211,102,0.3)">
+              <div class="hour-day" style="color:#25d366">WhatsApp</div>
+              <div class="hour-time" style="color:#25d366">24/7 Online</div>
+            </div>
+          </div>
+
+          <div style="margin-top:28px">
+            <a href="https://wa.me/6289637712970?text=Halo%20Admin%20PROXINET%20%F0%9F%91%8B%0A%0ASaya%20ingin%20menghubungi%20tim%20support%20PROXINET.%0A%0ABisa%20dibantu%3F%20Terima%20kasih%20%F0%9F%99%8F" target="_blank" class="btn btn-wa btn-lg" style="width:100%;justify-content:center">
+              <i class="fab fa-whatsapp"></i> Chat WhatsApp Sekarang
+            </a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="card" style="align-self:start">
+          <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:8px;letter-spacing:0.03em">
+            Kirim Pesan
+          </h3>
+          <p style="font-size:0.85rem;color:var(--gray);margin-bottom:28px">Pesan akan dikirim langsung ke WhatsApp Admin kami</p>
+
+          <form id="contactForm">
+            <div class="form-group">
+              <label class="form-label" for="fname">Nama Lengkap *</label>
+              <input type="text" name="name" id="fname" class="form-control" placeholder="Masukkan nama Anda" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fphone">Nomor WhatsApp</label>
+              <input type="tel" name="phone" id="fphone" class="form-control" placeholder="08xx-xxxx-xxxx" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fsubject">Keperluan *</label>
+              <select name="subject" id="fsubject" class="form-control" required>
+                <option value="" disabled selected>Pilih keperluan Anda</option>
+                <option value="Informasi Paket Internet">Informasi Paket Internet</option>
+                <option value="Pendaftaran Pelanggan Baru">Pendaftaran Pelanggan Baru</option>
+                <option value="Laporan Gangguan / Troubleshooting">Laporan Gangguan / Troubleshooting</option>
+                <option value="Permintaan Upgrade Paket">Permintaan Upgrade Paket</option>
+                <option value="Pembayaran & Tagihan">Pembayaran & Tagihan</option>
+                <option value="Pertanyaan Umum">Pertanyaan Umum</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fmessage">Pesan *</label>
+              <textarea name="message" id="fmessage" class="form-control" rows="4" placeholder="Tulis pesan Anda di sini..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-wa" style="width:100%;justify-content:center">
+              <i class="fab fa-whatsapp"></i> Kirim via WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:32px">
+        <p>© 2026 <span>PROXINET Jaringan Nusantara</span> branch Sukabumi.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- =========================================================
+     PAGE: LOKASI
+     ========================================================= -->
+<div class="page" id="location">
+  <section class="about-hero">
+    <div class="container">
+      <div class="page-hero-tag">Lokasi Kami</div>
+      <h1 class="page-hero-title">Temukan <span style="background:linear-gradient(135deg,var(--accent),var(--primary-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Kantor Kami</span></h1>
+      <p class="page-hero-desc">Kunjungi kantor kami untuk konsultasi langsung atau proses pendaftaran pelanggan baru.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="location-content">
+        <!-- Map -->
+        <div>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.537403748434!2d106.94917497477056!3d-6.945753493054359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e684977de744b6f%3A0x45c7da3b1eebe9a5!2sPROXINET%20SUKABUMI!5e0!3m2!1sid!2sid!4v1777267608426!5m2!1sid!2sid"
+              width="100%"
+              height="420"
+              style="border:0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+            <a href="https://maps.app.goo.gl/Ly9qXVkc9dFnw1f56" target="_blank" class="btn btn-primary">
+              <i class="fas fa-directions"></i> Buka di Google Maps
+            </a>
+            <a href="https://wa.me/6289637712970?text=Halo%20Admin%20PROXINET%20%F0%9F%91%8B%0A%0ASaya%20ingin%20mengunjungi%20kantor%20PROXINET%20Sukabumi.%0A%0ABoleh%20minta%20petunjuk%20arah%20lengkapnya%3F%20Terima%20kasih%20%F0%9F%99%8F" target="_blank" class="btn btn-wa">
+              <i class="fab fa-whatsapp"></i> Minta Petunjuk Arah
+            </a>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div>
+          <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:20px;letter-spacing:0.03em">
+            Informasi Kantor
+          </h3>
+
+          <div class="info-box">
+            <div class="info-box-icon"><i class="fas fa-building"></i></div>
+            <div class="info-box-content">
+              <h4>Nama</h4>
+              <p>PROXINET Jaringan Nusantara<br/>branch Sukabumi</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <div class="info-box-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="info-box-content">
+              <h4>Alamat</h4>
+              <p>Jl. Sarasa No.1, Kp. Loasari<br/>Sindangpalay, Kec. Cibeureum<br/>Kota Sukabumi, Jawa Barat 43162</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <div class="info-box-icon"><i class="fas fa-clock"></i></div>
+            <div class="info-box-content">
+              <h4>Jam Buka</h4>
+              <p>Senin – Jumat: 08.00 – 00.00 WIB<br/>Sabtu: 08.00 – 00.00 WIB<br/>Minggu: 09.00 – 00.00 WIB</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <div class="info-box-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="info-box-content">
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/6289637712970" target="_blank">0858-6367-7776</a>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:20px;background:linear-gradient(135deg,rgba(37,211,102,0.1),rgba(18,140,126,0.05));border-color:rgba(37,211,102,0.3)">
+            <h4 style="font-family:var(--font-display);color:var(--white);margin-bottom:8px;font-size:1rem">
+              <i class="fas fa-info-circle" style="color:#25d366;margin-right:8px"></i>Sebelum Berkunjung
+            </h4>
+            <p style="font-size:0.85rem;color:var(--gray);line-height:1.6">Disarankan untuk menghubungi kami terlebih dahulu via WhatsApp sebelum berkunjung untuk memastikan tim kami siap melayani Anda dan menghindari antrian.</p>
+            <a href="https://wa.me/6289637712970?text=Halo%20Admin%20PROXINET%20%F0%9F%91%8B%0A%0ASaya%20berencana%20mengunjungi%20kantor%20PROXINET%20Sukabumi.%0A%0AApakah%20bisa%20buat%20janji%20kunjungan%20hari%20ini%3F%20Terima%20kasih%20%F0%9F%99%8F" target="_blank" class="btn btn-wa" style="margin-top:16px;width:100%;justify-content:center">
+              <i class="fab fa-whatsapp"></i> Buat Janji Kunjungan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:32px">
+        <p>© 2026 <span>PROXINET Jaringan Nusantara</span> branch Sukabumi.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- =========================================================
+     PAGE: LOGIN / SIGN IN
+     ========================================================= -->
+<div class="page" id="login">
+  <section class="login-section">
+    <!-- Background -->
+    <div class="login-bg">
+      <div class="login-grid"></div>
+      <div class="login-glow login-glow-1"></div>
+      <div class="login-glow login-glow-2"></div>
+    </div>
+
+    <div class="login-wrapper">
+      <!-- Left Panel - Brand -->
+      <div class="login-brand-panel">
+        <div class="login-brand-content">
+          <img src="images/logo-2.png" alt="PROXINET" class="login-logo" />
+          <h2 class="login-brand-title">Selamat Datang di<br/><span>PROXINET JARINGAN NUSANTARA BRANCH SUKABUMI</span></h2>
+          <p class="login-brand-desc">Portal pelanggan PROXINET Jaringan Nusantara branch Sukabumi.</p>
+
+          <div class="login-features">
+            <div class="login-feature">
+              <div class="login-feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+              <div>
+                <div class="login-feature-title">Dashboard Pelanggan</div>
+                <div class="login-feature-desc">Monitor kecepatan & penggunaan data</div>
+              </div>
+            </div>
+            <div class="login-feature">
+              <div class="login-feature-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+              <div>
+                <div class="login-feature-title">Tagihan Online</div>
+                <div class="login-feature-desc">Lihat & bayar tagihan dengan mudah</div>
+              </div>
+            </div>
+            <div class="login-feature">
+              <div class="login-feature-icon"><i class="fas fa-headset"></i></div>
+              <div>
+                <div class="login-feature-title">Tiket Support</div>
+                <div class="login-feature-desc">Ajukan laporan gangguan langsung</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="login-stats">
+            <div class="login-stat"><span>5K+</span><small>Pelanggan</small></div>
+            <div class="login-stat"><span>99%</span><small>Uptime</small></div>
+            <div class="login-stat"><span>24/7</span><small>Support</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel - Form -->
+      <div class="login-form-panel">
+        <div class="login-form-box">
+          <!-- Back button -->
+          <button class="login-back-btn" onclick="showPage('home')">
+            <i class="fas fa-arrow-left"></i> Kembali
+          </button>
+
+          <div class="login-form-header">
+            <div class="login-form-icon"><i class="fas fa-lock"></i></div>
+            <h1 class="login-form-title">Masuk ke Akun</h1>
+            <p class="login-form-subtitle">Gunakan akun Google atau email untuk masuk</p>
+          </div>
+
+          <!-- Google Sign In Button -->
+          <button class="btn-google-signin" id="googleSignInBtn" onclick="handleGoogleSignIn()">
+            <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <span>Masuk dengan Google</span>
+          </button>
+
+          <div class="login-divider">
+            <span>atau masuk dengan email</span>
+          </div>
+
+          <!-- Email Form -->
+          <form class="login-email-form" id="loginEmailForm" onsubmit="handleEmailLogin(event)">
+            <div class="form-group">
+              <label class="form-label" for="loginEmail">
+                <i class="fas fa-envelope" style="margin-right:6px;color:var(--accent)"></i>Email
+              </label>
+              <input type="email" id="loginEmail" name="email" class="form-control" placeholder="nama@email.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="loginPassword">
+                <i class="fas fa-key" style="margin-right:6px;color:var(--accent)"></i>Kata Sandi
+              </label>
+              <div style="position:relative">
+                <input type="password" id="loginPassword" name="password" class="form-control" placeholder="Masukkan kata sandi" required style="padding-right:48px" />
+                <button type="button" class="toggle-password" onclick="togglePassword()" id="togglePwdBtn">
+                  <i class="fas fa-eye" id="pwdEyeIcon"></i>
+                </button>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:flex-end;margin-bottom:20px">
+              <a href="#" class="login-forgot">Lupa kata sandi?</a>
+            </div>
+            <button type="submit" class="btn-login-submit">
+              <i class="fas fa-sign-in-alt"></i> Masuk
+            </button>
+          </form>
+
+          <p class="login-register-text">
+            Belum punya akun?
+            <a href="#" onclick="showRegisterPanel()">Daftar Gratis</a>
+          </p>
+
+          <!-- Register Panel (hidden by default) -->
+          <div class="register-panel" id="registerPanel" style="display:none">
+            <div class="login-divider"><span>Daftar Akun Baru</span></div>
+            <form onsubmit="handleRegister(event)">
+              <div class="form-group">
+                <label class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-control" placeholder="Nama lengkap Anda" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="nama@email.com" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Nomor WhatsApp</label>
+                <input type="tel" class="form-control" placeholder="08xx-xxxx-xxxx" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Kata Sandi</label>
+                <input type="password" class="form-control" placeholder="Min. 8 karakter" required minlength="8" />
+              </div>
+              <button type="submit" class="btn-login-submit">
+                <i class="fas fa-user-plus"></i> Buat Akun
+              </button>
+            </form>
+            <p class="login-register-text" style="margin-top:16px">
+              Sudah punya akun? <a href="#" onclick="hideRegisterPanel()">Masuk</a>
+            </p>
+          </div>
+
+          <p class="login-tos">
+            Dengan masuk, Anda menyetujui <a href="#">Syarat & Ketentuan</a> dan <a href="#">Kebijakan Privasi</a> PROXINET.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/6289637712970?text=Halo%20Admin%20PROXINET%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20layanan%20internet%20PROXINET.%0A%0ABoleh%20saya%20bertanya%20lebih%20lanjut%3F%20Terima%20kasih%20%F0%9F%99%8F" class="wa-float" target="_blank" title="Chat WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-float-tooltip">Chat dengan Admin</span>
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
